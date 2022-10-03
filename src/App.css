@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+body {
+	background: linear-gradient(-45deg, #554499, #4618ff, #6007a4, #a767d5, #187189, #0f9f98);
+	background-size: 400% 400%;
+	-webkit-animation: gradient 15s ease infinite;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body:hover{
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+ 
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+::placeholder{
   color: white;
+  padding-left: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.popup-content {
+	background-color: transparent !important;
+	border: none !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardHover:hover {
+	background-color: rgba(255, 255, 255, 0.3) !important;
+	animation: fade 0.1s ease-in-out;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
 }

@@ -102,7 +102,7 @@ export const user = gql`
 `;
 
 export const vehicle = gql`
-    query vehicle($id:String!) {
+    query vehicle($id:Int) {
         vehicle(id:$id) {
             id
             vehicleType

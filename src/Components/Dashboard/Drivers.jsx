@@ -71,28 +71,6 @@ const Drivers = () => {
             padding: '20px 20px 15px 22px',
             borderRadius: '5px 5px 0 0',
         },
-        rollOut: {
-            animation: 'rollout 0.4s ease-out',
-        },
-        rollIn: {
-            animation: 'rollin 0.4s ease-in',
-        },
-        '@keyframes rollout': {
-            '0%': {
-                transform: 'translateY(0)',
-            },
-            '100%': {
-                transform: 'translateY(-100%)',
-            },
-        },
-        '@keyframes rollin': {
-            '0%': {
-                transform: 'translateY(-100%)',
-            },
-            '100%': {
-                transform: 'translateY(0)',
-            },
-        },
     };
 
     const { data, loading, error } = useQuery(drivers);
@@ -108,7 +86,7 @@ const Drivers = () => {
                         <Grid>
                             {data.drivers.map(({user}) => {
                                 return (
-                                        <Driver style={styles.rollOut} key={user.id} id={user.id}/>
+                                        <Driver key={user.id} id={user.id}/>
                                 );
                             })}
                         </Grid>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const DriverInfo = (Props) => {
+const VehicleInfo = (Props) => {
     const styles = {
         container: {
             position : "relative",
@@ -47,15 +47,13 @@ const DriverInfo = (Props) => {
     return (
         <div style={styles.container}>
             <div style={styles.profile}>
-                    <h3>{Props.driver.firstName} {Props.driver.lastName}</h3>
-                    <p>{Props.driver.email}</p>
-                    <p>{Props.driver.userProfile.phoneNumber}</p>
-                    <p>{Props.driver.userProfile.address}</p>
-                    <p>{Props.driver.userProfile.city}</p>
-                    <p>{Props.driver.userProfile.isVerified ? "Verified" : "Unverified"}</p>
-                    <p>{Props.driver.isActive ? 'Active' : 'Inactive'}</p>
-                    <p>Joined at {Props.driver.dateJoined}</p>
-                    <p>{Props.driver.lastLogin ? Props.driver.lastLogin : 'Never logged in'}</p>
+                    <h3>{Props.vehicle.vehicleNumber}</h3>
+                    <p>{Props.vehicle.vehicleModel}</p>
+                    <p>{Props.vehicle.vehicleType}</p>
+                    <p>{Props.vehicle.vehicleCapacityQuantity} {Props.vehicle.vehicleCapacityUnit}</p>
+                    <p>{Props.vehicle.vehiculeMileage} KM</p>
+                    <p>Joined at {Props.vehicle.createdAt}</p>
+                    <p>Updated at {Props.vehicle.updatedAt ? Props.vehicle.updatedAt : 'Never updated'}</p>
             </div>
             {/* <div style={styles.profileButtons}>
                         <button style={styles.button}>Edit</button>
@@ -65,4 +63,4 @@ const DriverInfo = (Props) => {
     );
 }
 
-export default DriverInfo;
+export default VehicleInfo;

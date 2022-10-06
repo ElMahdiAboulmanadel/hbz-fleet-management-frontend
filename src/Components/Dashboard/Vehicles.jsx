@@ -1,5 +1,9 @@
 import React from "react";
 import { Scrollbars } from 'react-custom-scrollbars';
+import { useQuery } from "@apollo/client";
+import { vehicles } from "../../Lib/queries";
+import { Grid } from "../Common";
+import Vehicle from "./Vehicles/Vehicle";
 
 const Vehicles = () => {
     const styles = {
@@ -63,17 +67,28 @@ const Vehicles = () => {
         content: {
             height: '90vh',
             width: '100%',
-            padding: '0px 20px 15px 22px',
+            padding: '20px 20px 15px 22px',
             borderRadius: '5px 5px 0 0',
         },
     };
+
+    const { data, loading, error } = useQuery(vehicles);
+
+    if (loading) return <div></div>;
+    if (error) return <div></div>;
 
     return (
         <div style={styles.container}>
             <span style={styles.title}>Vehicles</span>
                 <div style={styles.content}>
                     <Scrollbars style={{ width: '100%', height: '100%' }}>
-                        <h1 style={{height:'1000px'}}>Dashboard</h1>
+                        <Grid>
+                            {data.vehicles.map((vehicle) => {
+                                return (
+                                        <Vehicle key={vehicle.id} id={vehicle.id}/>
+                                );
+                            })}
+                        </Grid>
                     </Scrollbars>
                 </div>
         </div>

@@ -4,6 +4,7 @@ import {Animated} from "react-animated-css";
 import Popup from 'reactjs-popup';
 import DriverInfo from "./Dashboard/Drivers/DriverInfo";
 import VehicleInfo from "./Dashboard/Vehicles/VehicleInfo";
+import ClientInfo from "./Dashboard/Clients/ClientInfo";
 
 export const Logo = (Props) => {
     const styles = {
@@ -150,7 +151,7 @@ export const ProfileCard = (Props) => {
                         {close => (
                             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                                 <div style={styles.modal}>
-                                    <DriverInfo driver={Props.driver}/>
+                                    {Props.driver ? <DriverInfo driver={Props.driver} /> : <ClientInfo client={Props.client} />}
                                     <div style={styles.close} onClick={close}>
                                     &times;
                                     </div>

@@ -6,6 +6,8 @@ import DriverInfo from "./Dashboard/Drivers/DriverInfo";
 import VehicleInfo from "./Dashboard/Vehicles/VehicleInfo";
 import ClientInfo from "./Dashboard/Clients/ClientInfo";
 import TripInfo from "./Dashboard/Trips/TripInfo";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export const Logo = (Props) => {
     const styles = {
@@ -348,6 +350,45 @@ export const TripCard = (Props) => {
                             </Animated>
                         )}
             </Popup>
+        </Animated>
+    );
+}
+
+export const DashboardCard = (Props) => {
+    const styles = {
+        card : {
+            position: "relative",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            padding: "1em",
+            borderRadius: "0.5em",
+            boxShadow: "0 0 0.5em rgba(0, 0, 0, 0.3)",
+            width: "200px"
+        }
+    };
+    const overlayStyle = { 
+            backgroundColor: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(5px)',
+    };
+
+
+    return (
+        <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+            <div className="cardHover" style={styles.card}>
+                <CircularProgressbar value={Props.count} text={`${Props.count} `+ Props.name} styles={buildStyles({textSize: '16px',
+
+                // How long animation takes to go from one percentage to another, in seconds
+                pathTransitionDuration: 0.5,
+
+                // Can specify path transition in more detail, or remove it entirely
+                // pathTransition: 'none',
+
+                // Colors
+                pathColor: `slateblue`,
+                textColor: 'white',
+                trailColor: '#d6d6d6',
+                backgroundColor: '#3e98c7',
+                })} />
+            </div>
         </Animated>
     );
 }

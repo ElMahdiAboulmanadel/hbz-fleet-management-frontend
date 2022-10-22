@@ -1,5 +1,11 @@
 import React from "react";
 import { Scrollbars } from 'react-custom-scrollbars';
+import { Grid } from "../Common";
+import ClientCount from "../Dashboard/Clients/ClientCount";
+import DriverCount from "../Dashboard/Drivers/DriverCount";
+import TripCount from "../Dashboard/Trips/TripCount";
+import VehicleCount from "../Dashboard/Vehicles/VehicleCount";
+import { DashboardCard } from "../Common";
 
 const Dashboard = () => {
     const styles = {
@@ -63,17 +69,29 @@ const Dashboard = () => {
         content: {
             height: '90vh',
             width: '100%',
-            padding: '0px 20px 15px 22px',
+            padding: '20px 20px 15px 22px',
             borderRadius: '5px 5px 0 0',
         },
     };
-
+    
     return (
         <div style={styles.container}>
             <span style={styles.title}>Dashboard</span>
                 <div style={styles.content}>
                     <Scrollbars style={{ width: '100%', height: '100%' }}>
-                        <h1 style={{height:'1000px'}}>Dashboard</h1>
+                        <Grid>
+                            <DashboardCard name='Clients' count={ClientCount()} />
+                            <DashboardCard name='Drivers' count={DriverCount()} />
+                            <DashboardCard name='Trips' count={TripCount()} />
+                            <DashboardCard name='Vehicles' count={VehicleCount()} />
+                            
+                        </Grid>
+                        <div style={{position:"absolute", bottom:"0"}}>
+                            <h4>This project is still under development</h4>
+                            <p>This version is not production ready and it's for testing and development only! <br></br>
+                                HBZ (TMS) is transport management system made by El Mahdi Aboulmanadel and Ismail El Iraqi in their internship at HBZ Holding.
+                            </p>
+                        </div>
                     </Scrollbars>
                 </div>
         </div>

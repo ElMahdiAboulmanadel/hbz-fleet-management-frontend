@@ -16,7 +16,7 @@ const Driver = ({ id }) => {
                 <ProfileCard
                     name={data.user.firstName + " " + data.user.lastName}
                     email={data.user.email}
-                    lastLogin={data.user.lastLogin ? data.user.lastLogin : "Never logged in"}
+                    lastLogin={data.user.lastLogin ? data.user.lastLogin.slice(0, 10) : "Never logged in"}
                     driver={data.user}
                 />
             </>

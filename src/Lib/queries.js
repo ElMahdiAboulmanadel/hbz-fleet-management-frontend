@@ -168,7 +168,7 @@ export const vehicle = gql`
 `;
 
 export const trip = gql`
-    query trip($id:String!) {
+    query trip($id:Int!) {
         trip(id:$id) {
             id
             driver{
